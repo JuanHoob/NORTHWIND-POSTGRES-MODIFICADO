@@ -1,8 +1,29 @@
-# Ejemplos de Consultas
+# Ejemplos de Consultas Northwind Modificado
 
-## 1. Productos con subcategoría y categoría
+A continuación tienes ejemplos prácticos para explorar y validar las principales funcionalidades de la base de datos.
+
+---
+
+## 1. Consultas básicas
 
 ```sql
+-- Ver los 10 productos con menor stock
+SELECT product_id, product_name, units_in_stock
+FROM products
+ORDER BY units_in_stock ASC
+LIMIT 10;
+
+-- Ver todos los clientes y su email
+SELECT customer_id, company_name, email
+FROM customers;
+```
+
+---
+
+## 2. Consultas sobre subcategorías y jerarquía
+
+```sql
+-- Ver productos con su subcategoría y categoría principal
 SELECT p.product_id, p.product_name, s.name AS subcategoria, c.category_name
 FROM products p
 JOIN subcategories s ON p.subcategory_id = s.subcategory_id
@@ -10,41 +31,96 @@ JOIN categories c ON s.category_id = c.category_id
 ORDER BY c.category_name, s.name, p.product_name;
 ```
 
-## 2. Productos con stock bajo
+---
+
+## 3. Consultas sobre descuentos por volumen
 
 ```sql
-SELECT p.product_id, p.product_name, p.units_in_stock, p.min_stock
-FROM products p
-WHERE p.units_in_stock < p.min_stock;
-```
+-- Ver reglas de descuento por volumen
+SELECT * FROM volume_discounts;
 
-## 3. Descuentos aplicados en pedidos
-
-```sql
+-- Calcular descuento aplicado en cada detalle de pedido
 SELECT od.order_id, od.product_id, od.quantity,
        calcular_descuento_volumen(od.product_id, od.quantity) AS descuento_aplicado
 FROM order_details od
 WHERE od.quantity >= 10;
 ```
 
-## 4. Consultar auditoría de productos
+---
+
+## 4. Consultas sobre auditoría y cambios en productos
 
 ```sql
+-- Ver historial de cambios en productos
 SELECT audit_id, product_id, changed_at, old_data, new_data
 FROM product_audit
 ORDER BY changed_at DESC;
 ```
 
-## 5. Consultas sobre vistas de análisis
+---
+
+## 5. Consultas sobre historial de precios
 
 ```sql
-SELECT * FROM productos_stock_bajo;
-SELECT * FROM ventas_mensuales;
-SELECT * FROM top_productos_vendidos;
-SELECT * FROM analisis_clientes;
+-- Ver historial de precios de un producto concreto
+SELECT product_id, old_price, new_price, changed_at
+FROM product_price_history
+WHERE product_id = 1
+ORDER BY changed_at DESC;
 ```
 
-## 6. Consultas y updates con JSONB
+---
+
+## 6. Consultas sobre alertas de stock
+
+```sql
+-- Ver alertas de stock pendientes de resolver
+SELECT sa.alert_id, p.product_name, sa.current_stock, sa.min_stock, sa.alert_date
+FROM stock_alerts sa
+JOIN products p ON sa.product_id = p.product_id
+WHERE sa.resolved = FALSE
+ORDER BY sa.alert_date DESC;
+```
+
+---
+
+## 7. Consultas sobre productos borrados lógicamente (soft delete)
+
+```sql
+-- Ver productos activos
+SELECT * FROM products WHERE deleted = FALSE;
+
+-- Ver productos borrados lógicamente
+SELECT * FROM products WHERE deleted = TRUE;
+
+-- Restaurar un producto borrado lógicamente
+UPDATE products SET deleted = FALSE WHERE product_id = 1;
+```
+
+---
+
+## 8. Consultas sobre vistas de análisis
+
+```sql
+-- Productos con stock bajo
+SELECT * FROM productos_stock_bajo;
+
+-- Ventas mensuales (vista normal)
+SELECT * FROM ventas_mensuales;
+
+-- Top productos vendidos
+SELECT * FROM top_productos_vendidos;
+
+-- Análisis de clientes por ventas
+SELECT * FROM analisis_clientes;
+
+-- Ventas mensuales (vista materializada)
+SELECT * FROM ventas_mensuales_mat;
+```
+
+---
+
+## 9. Consultas y updates con JSONB
 
 ```sql
 -- Añadir campo al JSON existente
@@ -64,59 +140,30 @@ FROM products
 WHERE caracteristicas_json->>'color' IS NOT NULL;
 ```
 
-## 7. Ejemplos prácticos para activar triggers y probar funcionalidades
+---
 
-### a) Cambiar stock para activar el trigger de alerta
-
-```sql
--- Disminuir el stock de un producto por debajo del mínimo para activar el trigger de alerta
-UPDATE products
-SET units_in_stock = 2
-WHERE product_id = 1;
--- Esto insertará una alerta en la tabla stock_alerts si el valor es menor que min_stock
-```
-
-### b) Actualizar un producto para activar la auditoría
+## 10. Validación de emails
 
 ```sql
--- Cambiar el nombre o el precio de un producto para activar el trigger de auditoría
-UPDATE products
-SET product_name = 'Nuevo nombre', unit_price = unit_price + 1
-WHERE product_id = 1;
--- Esto insertará un registro en la tabla product_audit
-```
+-- Intentar insertar un cliente con email inválido (debería fallar)
+INSERT INTO customers (customer_id, company_name, email)
+VALUES ('ZZZZZ', 'Cliente Prueba', 'noesuncorreo');
 
-### c) Probar el trigger de descuentos por volumen
-
-```sql
--- Insertar un detalle de pedido con cantidad suficiente para aplicar descuento
-INSERT INTO order_details (order_id, product_id, unit_price, quantity, discount)
-VALUES (11078, 1, 18.00, 50, 0);
--- Luego consulta el descuento aplicado:
-SELECT order_id, product_id, quantity,
-       calcular_descuento_volumen(product_id, quantity) AS descuento_aplicado
-FROM order_details
-WHERE order_id = 11078;
-```
-
-### d) Actualizar JSONB y consultar cambios
-
-```sql
--- Añadir o modificar un campo en el JSONB
-UPDATE products
-SET caracteristicas_json = jsonb_set(caracteristicas_json, '{material}', '"Vidrio"')
-WHERE product_id = 1;
-
--- Consultar productos cuyo JSONB contiene un campo específico
-SELECT product_id, product_name
-FROM products
-WHERE caracteristicas_json ? 'material';
+-- Insertar un cliente con email válido (debería funcionar)
+INSERT INTO customers (customer_id, company_name, email)
+VALUES ('YYYYY', 'Cliente Correcto', 'cliente@ejemplo.com');
 ```
 
 ---
 
-**Recuerda:**  
-- Cambios en `units_in_stock` activan el trigger de alertas de stock.
-- Cambios en cualquier campo de `products` activan la auditoría.
-- Cambios en cantidades de `order_details` pueden activar descuentos por volumen si consultas con la función.
-- Updates en `caracteristicas_json` permiten probar búsquedas y el índice GIN si está creado.
+## 11. Refrescar la vista materializada
+
+```sql
+-- Refrescar los datos de la vista materializada de ventas mensuales
+REFRESH MATERIALIZED VIEW ventas_mensuales_mat;
+```
+
+---
+
+**¡Explora, prueba y aprende pero tampoco te olvides de disfrutar!**  
+Estas consultas te ayudarán a validar y aprovechar todas las funcionalidades avanzadas de Northwind Modificado.

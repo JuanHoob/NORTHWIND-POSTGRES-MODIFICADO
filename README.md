@@ -1,3 +1,48 @@
+## 📑 Índice
+
+- [Proyecto Northwind PostgreSQL - Modificado](#proyecto-northwind-postgresql---modificado)
+  - [📋 Descripción del Proyecto](#-descripción-del-proyecto)
+    - [✨ Nuevas Funcionalidades](#-nuevas-funcionalidades)
+  - [🛠️ Tecnologías](#️-tecnologías)
+  - [📁 Estructura del Repositorio](#-estructura-del-repositorio)
+  - [🚀 Instalación Rápida](#-instalación-rápida)
+    - [Prerrequisitos](#prerrequisitos)
+    - [Instalación en 3 pasos](#instalación-en-3-pasos)
+    - [Alternativa con pgAdmin](#alternativa-con-pgadmin)
+  - [🔍 Funcionalidades Principales](#-funcionalidades-principales)
+    - [1. Modificación de la tabla Products](#1-modificación-de-la-tabla-products)
+    - [2. Propuesta del alumno](#2-propuesta-del-alumno)
+  - [📊 Nuevas Tablas Añadidas](#-nuevas-tablas-añadidas)
+  - [📈 Vistas Creadas](#-vistas-creadas)
+  - [🔧 Funciones y Triggers](#-funciones-y-triggers)
+  - [📝 Datos de Prueba](#-datos-de-prueba)
+  - [🧪 Validar Instalación](#-validar-instalación)
+  - [📋 Especificaciones Técnicas](#-especificaciones-técnicas)
+  - [👨‍🎓 Información Académica](#-información-académica)
+  - [📞 Soporte](#-soporte)
+  - [🎯 Objetivos de Aprendizaje Demostrados](#-objetivos-de-aprendizaje-demostrados)
+    - [Sistema de Categorías Jerárquica](#sistema-de-categorías-jerárquica)
+      - [¿Cómo funciona?](#cómo-funciona)
+      - [Scripts de implementación](#scripts-de-implementación)
+      - [Ejemplo de consulta](#ejemplo-de-consulta)
+    - [Control de Stock Avanzado](#control-de-stock-avanzado)
+      - [Scripts de implementación](#scripts-de-implementación-1)
+      - [Consulta de productos con stock bajo](#consulta-de-productos-con-stock-bajo)
+    - [Descuentos por Volumen](#descuentos-por-volumen)
+      - [¿Cómo funciona?](#cómo-funciona-1)
+      - [Scripts de implementación](#scripts-de-implementación-2)
+      - [Ejemplo de consulta](#ejemplo-de-consulta-1)
+    - [Auditoría Completa de Cambios en Productos](#auditoría-completa-de-cambios-en-productos)
+      - [¿Cómo funciona?](#cómo-funciona-2)
+      - [Scripts de implementación](#scripts-de-implementación-3)
+      - [Ejemplo de consulta](#ejemplo-de-consulta-2)
+    - [Vistas de Análisis](#vistas-de-análisis)
+      - [Scripts de implementación](#scripts-de-implementación-4)
+      - [Ejemplo de consulta](#ejemplo-de-consulta-3)
+    - [Triggers Inteligentes](#triggers-inteligentes)
+      - [¿Cómo funcionan?](#cómo-funcionan)
+      - [Scripts de implementación](#scripts-de-implementación-5)
+
 # Proyecto Northwind PostgreSQL - Modificado
 
 Este repositorio contiene una versión modificada de la base de datos Northwind para PostgreSQL, desarrollada como proyecto de curso con nuevas funcionalidades y mejoras.
@@ -53,7 +98,7 @@ northwind-postgres-modificado/
 1. **Clonar repositorio**
 
 ```bash
-git clone https://github.com/JuanHobb/northwind-postgres-modificado.git
+git clone https://github.com/JuanHobb/NORTHWIND_MODIFICADO.git
 cd northwind-postgres-modificado
 ```
 
