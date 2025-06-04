@@ -187,6 +187,9 @@ Como parte del ejercicio de evaluación y mejora, se han implementado propuestas
 - **Validación de emails en clientes:**  
   Restricción CHECK para asegurar que los emails introducidos sean válidos.
 
+  ![Validación de emails](/screenshots/Email_customer.PNG)  
+*Implementación de restricción para emails válidos en clientes*
+
 - **Descuento automático de stock tras cada pedido:**  
   Trigger que descuenta automáticamente el stock al registrar un pedido.
 
@@ -206,10 +209,20 @@ Estas propuestas reflejan la aplicación de conocimientos avanzados en administr
 ## 📊 Nuevas Tablas Añadidas
 
 - `subcategories` - Categorías jerárquicas
+- ![Tabla de subcategorías](/screenshots/jerarquización_categorias.PNG)  
+*Implementación del sistema de categorías jerárquicas*
 - `volume_discounts` - Descuentos por cantidad
+- ![Tabla de descuentos por volumen](/screenshots/DescuentosPorVolumen.PNG)  
+*Implementación del sistema de descuentos por volumen*
 - `product_audit` - Auditoría de cambios
+- ![Tabla de auditoría de productos](/screenshots/AuditoriaDeCambiosEnProductos.PNG)  
+*Implementación del sistema de auditoría de productos*
 - `stock_alerts` - Alertas de inventario
+- ![Tabla de alertas de inventario](/screenshots/Control_de_Stock_Avanzado.PNG)  
+*Implementación del sistema de alertas de inventario*
 - `product_price_history` - Historial de precios
+- ![Tabla de historial de precios](/screenshots/historial_precios.PNG)  
+*Implementación del sistema de historial de precios*
 
 ## 📈 Vistas Creadas
 
@@ -217,7 +230,11 @@ Estas propuestas reflejan la aplicación de conocimientos avanzados en administr
 - `ventas_mensuales` - Análisis temporal
 - `top_productos_vendidos` - Ranking de productos
 - `analisis_clientes` - Segmentación de clientes
+- ![Vistas de análisis](/screenshots/VistasDeAnalisis.PNG)  
+*Vista de top productos vendidos y análisis de clientes*
 - `ventas_mensuales_mat` - Vista materializada de ventas mensuales
+- ![Vista materializada](/screenshots/Vista_Materializada.PNG)  
+*Vista materializada para reportes de ventas mensuales*
 
 ## 🔧 Funciones y Triggers
 
