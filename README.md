@@ -1,6 +1,7 @@
-## 📑 Índice
+# 📑 Índice
 
-- [Proyecto Northwind PostgreSQL - Modificado](#proyecto-northwind-postgresql---modificado)
+- [📑 Índice](#-índice)
+  - [Proyecto Northwind PostgreSQL - Modificado](#proyecto-northwind-postgresql---modificado)
   - [📋 Descripción del Proyecto](#-descripción-del-proyecto)
     - [✨ Nuevas Funcionalidades](#-nuevas-funcionalidades)
   - [🛠️ Tecnologías](#️-tecnologías)
@@ -21,29 +22,31 @@
   - [👨‍🎓 Información Académica](#-información-académica)
   - [📞 Soporte](#-soporte)
   - [🎯 Objetivos de Aprendizaje Demostrados](#-objetivos-de-aprendizaje-demostrados)
-    - [Sistema de Categorías Jerárquica](#sistema-de-categorías-jerárquica)
-      - [¿Cómo funciona?](#cómo-funciona)
-      - [Scripts de implementación](#scripts-de-implementación)
-      - [Ejemplo de consulta](#ejemplo-de-consulta)
-    - [Control de Stock Avanzado](#control-de-stock-avanzado)
-      - [Scripts de implementación](#scripts-de-implementación-1)
-      - [Consulta de productos con stock bajo](#consulta-de-productos-con-stock-bajo)
-    - [Descuentos por Volumen](#descuentos-por-volumen)
-      - [¿Cómo funciona?](#cómo-funciona-1)
-      - [Scripts de implementación](#scripts-de-implementación-2)
-      - [Ejemplo de consulta](#ejemplo-de-consulta-1)
-    - [Auditoría Completa de Cambios en Productos](#auditoría-completa-de-cambios-en-productos)
-      - [¿Cómo funciona?](#cómo-funciona-2)
-      - [Scripts de implementación](#scripts-de-implementación-3)
-      - [Ejemplo de consulta](#ejemplo-de-consulta-2)
-    - [Vistas de Análisis](#vistas-de-análisis)
-      - [Scripts de implementación](#scripts-de-implementación-4)
-      - [Ejemplo de consulta](#ejemplo-de-consulta-3)
-    - [Triggers Inteligentes](#triggers-inteligentes)
-      - [¿Cómo funcionan?](#cómo-funcionan)
-      - [Scripts de implementación](#scripts-de-implementación-5)
+  - [Sistema de Categorías Jerárquica](#sistema-de-categorías-jerárquica)
+    - [¿Cómo funciona el sistema de categorías jerárquicas?](#cómo-funciona-el-sistema-de-categorías-jerárquicas)
+      - [Scripts de implementación: Sistema de Categorías Jerárquico](#scripts-de-implementación-sistema-de-categorías-jerárquico)
+      - [Ejemplo de consulta de subcategorías](#ejemplo-de-consulta-de-subcategorías)
+  - [Control de Stock Avanzado](#control-de-stock-avanzado)
+    - [Scripts de implementación: Control de Stock Avanzado](#scripts-de-implementación-control-de-stock-avanzado)
+      - [Ejemplo de consulta de productos con stock bajo](#ejemplo-de-consulta-de-productos-con-stock-bajo)
+  - [Descuentos por Volumen](#descuentos-por-volumen)
+    - [¿Cómo funciona el sistema de descuentos por volumen?](#cómo-funciona-el-sistema-de-descuentos-por-volumen)
+      - [Scripts de implementación: Sistema de Categorías Jerárquica](#scripts-de-implementación-sistema-de-categorías-jerárquica)
+      - [Ejemplo de consulta para ver los descuentos](#ejemplo-de-consulta-para-ver-los-descuentos)
+  - [Auditoría Completa de Cambios en Productos](#auditoría-completa-de-cambios-en-productos)
+    - [¿Cómo funciona auditoría?](#cómo-funciona-auditoría)
+      - [Scripts de implementación para auditoría de productos](#scripts-de-implementación-para-auditoría-de-productos)
+      - [Ejemplo de consulta para auditorías de productos](#ejemplo-de-consulta-para-auditorías-de-productos)
+  - [Vistas de Análisis](#vistas-de-análisis)
+    - [Scripts de implementación de Vistas de Análisis](#scripts-de-implementación-de-vistas-de-análisis)
+      - [Ejemplo de consulta de las Vistas Analíticas](#ejemplo-de-consulta-de-las-vistas-analíticas)
+  - [Triggers Inteligentes](#triggers-inteligentes)
+    - [¿Cómo funcionan los triggers inteligentes?](#cómo-funcionan-los-triggers-inteligentes)
+      - [Scripts de implementación de Triggers Inteligentes](#scripts-de-implementación-de-triggers-inteligentes)
+  - [📨 Validación de Emails en Clientes](#-validación-de-emails-en-clientes)
+  - [Conclusión del Proyecto](#conclusión-del-proyecto)
 
-# Proyecto Northwind PostgreSQL - Modificado
+## Proyecto Northwind PostgreSQL - Modificado
 
 Este repositorio contiene una versión modificada de la base de datos Northwind para PostgreSQL, desarrollada como proyecto de curso con nuevas funcionalidades y mejoras.
 
@@ -73,17 +76,17 @@ La base de datos Northwind ha sido extendida con las siguientes mejoras:
 
 ## 📁 Estructura del Repositorio
 
-```
+```markdown
 northwind-postgres-modificado/
-├── README.md                          # Este archivo
-├── northwind_modificado.sql           # ⭐ DUMP COMPLETO DE LA BD
+├── README.md # Este archivo
+├── northwind_modificado.sql # ⭐ DUMP COMPLETO DE LA BD
 ├── docs/
-│   ├── INSTALACION.md                 # Guía de instalación
-│   ├── FUNCIONALIDADES.md             # Documentación de mejoras
-│   └── CONSULTAS_EJEMPLO.md           # Ejemplos de uso
+│ ├── INSTALACION.md # Guía de instalación
+│ ├── FUNCIONALIDADES.md # Documentación de mejoras
+│ └── CONSULTAS_EJEMPLO.md # Ejemplos de uso
 └── screenshots/
-    ├── diagrama_er.png                # Diagrama actualizado
-    └── consultas_ejemplo.png          # Capturas de pantalla
+├── diagrama_er.png # Diagrama actualizado
+└── consultas_ejemplo.png # Capturas de pantalla
 ```
 
 ## 🚀 Instalación Rápida
@@ -98,17 +101,17 @@ northwind-postgres-modificado/
 1. **Clonar repositorio**
 
 ```bash
-git clone https://github.com/JuanHobb/NORTHWIND_MODIFICADO.git
+git clone https://github.com/JuanHobb/NORTHWIND-POSTGRES-MODIFICADO.git
 cd northwind-postgres-modificado
 ```
 
-2. **Crear base de datos**
+1. **Crear base de datos**
 
 ```bash
 createdb northwind_curso
 ```
 
-3. **Restaurar dump completo**
+1. **Restaurar dump completo**
 
 ```bash
 psql -d northwind_curso -f northwind_modificado.sql
@@ -185,10 +188,10 @@ Como parte del ejercicio de evaluación y mejora, se han implementado propuestas
   Trigger y tabla para registrar cada cambio de precio de los productos.
 
 - **Validación de emails en clientes:**  
-  Restricción CHECK para asegurar que los emails introducidos sean válidos.
+   Restricción CHECK para asegurar que los emails introducidos sean válidos.
 
   ![Validación de emails](/screenshots/Email_customer.PNG)  
-*Implementación de restricción para emails válidos en clientes*
+  _Implementación de restricción para emails válidos en clientes_
 
 - **Descuento automático de stock tras cada pedido:**  
   Trigger que descuenta automáticamente el stock al registrar un pedido.
@@ -210,19 +213,19 @@ Estas propuestas reflejan la aplicación de conocimientos avanzados en administr
 
 - `subcategories` - Categorías jerárquicas
 - ![Tabla de subcategorías](/screenshots/jerarquización_categorias.PNG)  
-*Implementación del sistema de categorías jerárquicas*
+  _Implementación del sistema de categorías jerárquicas_
 - `volume_discounts` - Descuentos por cantidad
 - ![Tabla de descuentos por volumen](/screenshots/DescuentosPorVolumen.PNG)  
-*Implementación del sistema de descuentos por volumen*
+  _Implementación del sistema de descuentos por volumen_
 - `product_audit` - Auditoría de cambios
 - ![Tabla de auditoría de productos](/screenshots/AuditoriaDeCambiosEnProductos.PNG)  
-*Implementación del sistema de auditoría de productos*
+  _Implementación del sistema de auditoría de productos_
 - `stock_alerts` - Alertas de inventario
 - ![Tabla de alertas de inventario](/screenshots/Control_de_Stock_Avanzado.PNG)  
-*Implementación del sistema de alertas de inventario*
+  _Implementación del sistema de alertas de inventario_
 - `product_price_history` - Historial de precios
 - ![Tabla de historial de precios](/screenshots/historial_precios.PNG)  
-*Implementación del sistema de historial de precios*
+  _Implementación del sistema de historial de precios_
 
 ## 📈 Vistas Creadas
 
@@ -231,10 +234,10 @@ Estas propuestas reflejan la aplicación de conocimientos avanzados en administr
 - `top_productos_vendidos` - Ranking de productos
 - `analisis_clientes` - Segmentación de clientes
 - ![Vistas de análisis](/screenshots/VistasDeAnalisis.PNG)  
-*Vista de top productos vendidos y análisis de clientes*
+  _Vista de top productos vendidos y análisis de clientes_
 - `ventas_mensuales_mat` - Vista materializada de ventas mensuales
 - ![Vista materializada](/screenshots/Vista_Materializada.PNG)  
-*Vista materializada para reportes de ventas mensuales*
+  _Vista materializada para reportes de ventas mensuales_
 
 ## 🔧 Funciones y Triggers
 
@@ -275,7 +278,7 @@ SELECT calcular_descuento_volumen(1, 100);  -- Debe mostrar 10.00
 
 ## 📋 Especificaciones Técnicas
 
-- **Versión PostgreSQL**: 12+
+- **Versión PostgreSQL**: 17
 - **Tamaño del dump**: ~500KB
 - **Total tablas**: 17 (13 originales + 4 nuevas)
 - **Total vistas**: 4
@@ -313,17 +316,17 @@ Si tienes problemas con la instalación:
 
 **Nota**: Este proyecto demuestra conocimientos avanzados en PostgreSQL aplicados sobre la conocida base de datos Northwind, añadiendo funcionalidades empresariales reales.
 
-### Sistema de Categorías Jerárquica
+## Sistema de Categorías Jerárquica
 
 Northwind originalmente solo permite asociar productos a una categoría principal. Para mejorar la organización, hemos implementado **subcategorías** que permiten una estructura jerárquica flexible.
 
-#### ¿Cómo funciona?
+### ¿Cómo funciona el sistema de categorías jerárquicas?
 
 - **categories**: Tabla original, contiene las categorías principales.
 - **subcategories**: Nueva tabla, cada subcategoría pertenece a una categoría.
 - **products**: Ahora cada producto puede asociarse a una subcategoría.
 
-#### Scripts de implementación
+#### Scripts de implementación: Sistema de Categorías Jerárquico
 
 ```sql
 -- 1. Crear la tabla de subcategorías
@@ -358,7 +361,7 @@ UPDATE products SET subcategory_id = 1 WHERE product_id = 1; -- Producto 1 a 'Re
 UPDATE products SET subcategory_id = 2 WHERE product_id = 2; -- Producto 2 a 'Zumos'
 ```
 
-#### Ejemplo de consulta
+#### Ejemplo de consulta de subcategorías
 
 ```sql
 SELECT p.product_id, p.product_name, s.name AS subcategoria, c.category_name
@@ -368,15 +371,16 @@ JOIN categories c ON s.category_id = c.category_id
 ORDER BY c.category_name, s.name, p.product_name;
 ```
 
-**Ventajas:**  
+**Ventajas:**
+
 - Permite filtrar productos por subcategoría o categoría principal.
 - Mejora la organización y el análisis de inventario.
 
-### Control de Stock Avanzado
+## Control de Stock Avanzado
 
 Se ha implementado un sistema de alertas automáticas para productos cuyo stock cae por debajo del mínimo definido.
 
-#### Scripts de implementación
+### Scripts de implementación: Control de Stock Avanzado
 
 ```sql
 ALTER TABLE products
@@ -409,7 +413,7 @@ FOR EACH ROW
 EXECUTE FUNCTION check_stock_alert();
 ```
 
-#### Consulta de productos con stock bajo
+#### Ejemplo de consulta de productos con stock bajo
 
 ```sql
 SELECT p.product_id, p.product_name, p.units_in_stock, p.min_stock
@@ -417,20 +421,21 @@ FROM products p
 WHERE p.units_in_stock < p.min_stock;
 ```
 
-**Ventajas:**  
+**Ventajas:**
+
 - Automatiza la gestión de inventario.
 - Permite actuar rápidamente ante posibles roturas de stock.
 
-### Descuentos por Volumen
+## Descuentos por Volumen
 
 Se ha implementado un sistema de descuentos automáticos según la cantidad comprada de cada producto.
 
-#### ¿Cómo funciona?
+### ¿Cómo funciona el sistema de descuentos por volumen?
 
 - **volume_discounts**: Nueva tabla donde se definen los descuentos por cantidad mínima para cada producto.
 - **Función calcular_descuento_volumen**: Devuelve el porcentaje de descuento aplicable según el producto y la cantidad.
 
-#### Scripts de implementación
+#### Scripts de implementación: Sistema de Categorías Jerárquica
 
 ```sql
 -- 1. Crear la tabla de descuentos por volumen
@@ -463,7 +468,7 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-#### Ejemplo de consulta
+#### Ejemplo de consulta para ver los descuentos
 
 ```sql
 SELECT od.order_id, od.product_id, od.quantity,
@@ -472,20 +477,21 @@ FROM order_details od
 WHERE od.quantity >= 10;
 ```
 
-**Ventajas:**  
+**Ventajas:**
+
 - Automatiza la aplicación de descuentos por cantidad.
 - Facilita la gestión de promociones y ventas al por mayor.
 
-### Auditoría Completa de Cambios en Productos
+## Auditoría Completa de Cambios en Productos
 
 Se ha implementado un sistema de auditoría que registra automáticamente los cambios realizados en la tabla de productos.
 
-#### ¿Cómo funciona?
+### ¿Cómo funciona auditoría?
 
 - **product_audit**: Nueva tabla donde se almacenan los cambios (antes y después) de cada producto.
 - **Trigger y función**: Cada vez que se actualiza un producto, se guarda un registro en la auditoría.
 
-#### Scripts de implementación
+#### Scripts de implementación para auditoría de productos
 
 ```sql
 -- 1. Crear la tabla de auditoría
@@ -518,7 +524,7 @@ FOR EACH ROW
 EXECUTE FUNCTION audit_product_changes();
 ```
 
-#### Ejemplo de consulta
+#### Ejemplo de consulta para auditorías de productos
 
 ```sql
 SELECT audit_id, product_id, changed_at, old_data, new_data
@@ -526,15 +532,16 @@ FROM product_audit
 ORDER BY changed_at DESC;
 ```
 
-**Ventajas:**  
+**Ventajas:**
+
 - Permite rastrear todos los cambios realizados en los productos.
 - Facilita la recuperación de información histórica y la trazabilidad.
 
-### Vistas de Análisis
+## Vistas de Análisis
 
 Se han creado varias vistas para facilitar el análisis de ventas, inventario y clientes.
 
-#### Scripts de implementación
+### Scripts de implementación de Vistas de Análisis
 
 ```sql
 -- 1. Vista de productos con stock bajo
@@ -579,27 +586,28 @@ GROUP BY c.customer_id, c.company_name
 ORDER BY total_gastado DESC;
 ```
 
-#### Ejemplo de consulta
+#### Ejemplo de consulta de las Vistas Analíticas
 
 ```sql
 SELECT * FROM top_productos_vendidos;
 ```
 
-**Ventajas:**  
+**Ventajas:**
+
 - Facilitan la toma de decisiones empresariales.
 - Permiten obtener reportes rápidos sin escribir consultas complejas.
 - Mejoran la visibilidad sobre ventas, inventario y clientes.
 
-### Triggers Inteligentes
+## Triggers Inteligentes
 
 Se han implementado triggers que automatizan tareas críticas en la base de datos, como la auditoría de cambios y la gestión de alertas de stock.
 
-#### ¿Cómo funcionan?
+### ¿Cómo funcionan los triggers inteligentes?
 
 - **Trigger de auditoría:** Cada vez que se actualiza un producto, se registra automáticamente el cambio en la tabla `product_audit`.
 - **Trigger de alertas de stock:** Cuando el stock de un producto baja del mínimo, se inserta automáticamente una alerta en la tabla `stock_alerts`.
 
-#### Scripts de implementación
+#### Scripts de implementación de Triggers Inteligentes
 
 ```sql
 -- Trigger de auditoría (ya documentado arriba)
@@ -615,25 +623,51 @@ FOR EACH ROW
 EXECUTE FUNCTION check_stock_alert();
 ```
 
-**Ventajas:**  
+**Ventajas:**
+
 - Automatizan la gestión de eventos importantes sin intervención manual.
 - Mejoran la integridad y trazabilidad de los datos.
 - Permiten reaccionar en tiempo real ante cambios críticos en la base de datos.
 
 > **Nota sobre vistas materializadas:**  
 > La vista `ventas_mensuales_mat` es una **vista materializada**.  
-> En pgAdmin, no aparece en la carpeta "Views" sino en la carpeta **"Materialized Views"** dentro del esquema (normalmente `public`).  
-> 
-> Las vistas materializadas almacenan los datos físicamente y deben refrescarse manualmente para actualizar su contenido.  
-> 
+> En pgAdmin, no aparece en la carpeta "Views" sino en la carpeta **"Materialized Views"** dentro del esquema (normalmente `public`).
+>
+> Las vistas materializadas almacenan los datos físicamente y deben refrescarse manualmente para actualizar su contenido.
+>
 > - Para ver sus datos: haz clic derecho sobre la vista en "Materialized Views" y selecciona "View/Edit Data".
-> - Para actualizarla (refrescar los datos): ejecuta  
+> - Para actualizarla (refrescar los datos): ejecuta
+>
 >   ```sql
 >   REFRESH MATERIALIZED VIEW ventas_mensuales_mat;
 >   ```
-> - Si necesitas eliminarla para volver a crearla:  
+>
+> - Si necesitas eliminarla para volver a crearla:
+>
 >   ```sql
 >   DROP MATERIALIZED VIEW ventas_mensuales_mat;
 >   ```
-> 
-> Si intentas crearla de nuevo sin borrarla antes, PostgreSQL mostrará un error de "ya existe".
+>
+> - Si intentas crearla de nuevo sin borrarla antes, PostgreSQL mostrará un error de "ya existe".
+
+## 📨 Validación de Emails en Clientes
+
+Se añade una columna `email` a la tabla `customers` y una restricción para asegurar que los emails sean válidos.
+
+```sql
+ALTER TABLE customers ADD COLUMN email VARCHAR(255);
+
+ALTER TABLE customers
+ADD CONSTRAINT chk_email_valid
+CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
+```
+
+## Conclusión del Proyecto
+
+Este proyecto va más allá de una simple modificación de Northwind: representa una transformación del modelo hacia un entorno empresarial moderno, dinámico y automatizado. En cada funcionalidad implementada se buscó no solo aplicar conocimientos técnicos, sino también resolver problemas reales de gestión comercial.
+
+La introducción de estructuras jerárquicas, auditoría completa y campos flexibles con JSONB permite modelar catálogos complejos sin comprometer el rendimiento ni la trazabilidad. Automatizar el stock o los descuentos responde a la necesidad de eficiencia operativa, mientras que las vistas analíticas empoderan la toma de decisiones rápida y fundamentada.
+
+Este ejercicio no solo consolidó habilidades en SQL y PostgreSQL, sino que demostró cómo una base de datos bien diseñada puede ser el corazón de un negocio inteligente. La experiencia adquirida con triggers, vistas materializadas, funciones y restricciones refleja un dominio integral que podrá ser aplicado en proyectos reales.
+
+En definitiva, una base de datos no es solo un repositorio de datos: es una herramienta viva que, bien construida, puede anticiparse a los problemas, automatizar tareas críticas y ofrecer información clave en el momento justo. Este proyecto lo demuestra en cada consulta y cada mejora aplicada.
